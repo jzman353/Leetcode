@@ -1,6 +1,19 @@
 
 import timeit
+import math
 
+#90%
+class Solution:
+    def maxProfit(self, prices) -> int:
+        length = len(prices)
+        maxx = 0
+        minval = prices[0]
+        for i in range(1,length):
+            minval = min(minval, prices[i])
+            maxx = max(maxx, prices[i]-minval)
+        return maxx
+"""
+#199/200 brute force not enough
 class Solution:
     def maxProfit(self, prices) -> int:
         length = len(prices)
@@ -9,7 +22,7 @@ class Solution:
             for j in range(i,length):
                 maxx = max(maxx, prices[j]-prices[i])
         return maxx
-
+"""
 if __name__ == '__main__':
     def test(input):
         Test = Solution()
@@ -20,5 +33,8 @@ if __name__ == '__main__':
     test(prices)
     prices = [7, 6, 4, 3, 1] #2 0
     test(prices)
+    prices = [30, 77, 2, 4, 3, 1]  # Made up 47
+    test(prices)
+
 
     #print(timeit.timeit("test([1,8,6,2,5,4,8,3,7])", setup="from __main__ import test", number=10))
