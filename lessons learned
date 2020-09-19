@@ -1,0 +1,86 @@
+heapq is a min heap setup built in to python
+heapq.heapify(heap) will turn a list (heap) into a heap item
+https://docs.python.org/2/library/heapq.html
+
+collections is a more complex list of datatypes available in python
+https://docs.python.org/2/library/collections.html
+deque is perfect for popping items from both directions (stack and/or queue)
+counter is useful for building hash tables to count items. You can use the most_common function
+
+hash() will return a unique hash number for any item. You can use this to find anagrams by summing the hash of letters and comparing them. abc == cab
+hash('a')+hash('b')+hash('c') == hash('c')+hash('a')+hash('b')
+https://docs.python.org/3.8/library/functions.html#hash
+
+
+#uses heapq, which is a min heap setup
+#uses negative freq because it wants the highest frequency to be the first 
+#available in the queue but then uses negative again to make it a 
+#positive number again
+
+
+import collections 
+import heapq
+class Solution:
+    def frequencySort(self, s: str) -> str:
+        counterMap = collections.Counter(s)
+        res = ''
+        hq = []
+        for char, freq in counterMap.items():
+            heapq.heappush(hq, (-freq, char))
+
+        while hq:
+            freq, char = heapq.heappop(hq)
+            res += -freq*char
+            
+        return res
+
+import collections 
+class Solution:
+    def frequencySort(self, s: str) -> str:
+        cnt = Counter()
+        for letter in s:
+            cnt[letter] += 1
+        data =  cnt.most_common() #produces tuple with (count, item)
+        output = ''
+        for i in range(len(data)):
+            if data[i][1] == 1:
+                output += data[i][0]
+            else:
+                for j in range(data[i][1]):
+                    output += data[i][0]
+        return output
+
+
+import collections
+import heapq
+
+class Solution:
+    def frequencySort(self, s: str) -> str:
+        letterCountDict = {}
+        
+        for letter in s:
+            if letter in letterCountDict:
+                letterCountDict[letter]+=1
+            else:
+                letterCountDict[letter]=1
+            
+        heap = []
+        result = []
+        
+        for key,value in letterCountDict.items():
+            heap.append((-value,key))
+        
+        heapq.heapify(heap)
+            
+        
+        while(len(heap) != 0):
+            value, letter = heapq.heappop(heap)
+            value*=-1
+            for i in range(value):
+                result.append(letter)
+        
+        return ''.join(result)
+
+https://stackoverflow.com/questions/4383571/importing-files-from-different-folder
+import sys
+sys.path.append('../')
