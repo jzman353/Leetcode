@@ -88,6 +88,8 @@ sys.path.append('../')
 Sorting a list and returning the indexes of the sorted values is often useful
 sorted_A = sorted(range(len(A)), key=lambda k: A[k])
 Array > Medium Width Ramp
+Sorting a list of lists by one of the indexes:
+l.sort(key=lambda x: x[1])
 
 collections.Counter is useful for counting occurrences in lists
 itertools product is useful when you need permutations with repetition allowed
@@ -98,3 +100,4 @@ import collections
         cnt[word] += 1
     print(cnt.most_common(10))
 permutations_list = [p for p in itertools.product(x, repeat=13)]
+
