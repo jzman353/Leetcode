@@ -101,3 +101,5 @@ import collections
     print(cnt.most_common(10))
 permutations_list = [p for p in itertools.product(x, repeat=13)]
 
+Initializing a two dimensional list:
+x = [[foo for i in range(10)] for j in range(10)]
