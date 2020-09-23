@@ -1,0 +1,11 @@
+Breadth first search for finding the unweighted shortest path.
+
+Dijkstra’s algorithm for weighted shortest path.
+
+Depth first search for graph exploration.
+
+Strongly connected components for simplifying a graph.
+
+Topological sort for ordering tasks.
+
+Minimum weight spanning trees for broadcasting messages.
