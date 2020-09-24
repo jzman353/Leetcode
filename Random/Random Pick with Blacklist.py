@@ -160,7 +160,7 @@ if __name__ == '__main__':
     test(N, B)
 
 import timeit
-print(timeit.timeit("test(10000000,range(0,10000000,2))", setup="from __main__ import test", number=2))
+print(timeit.timeit("test(10000000,range(0,10000000,2))", setup="from __main__ import test", number=1))
 # This is an example of a large n with a blacklist that is not super populated
 #1st attempt took 11 seconds on average
 #2nd attemp took 19.5 seconds on average
