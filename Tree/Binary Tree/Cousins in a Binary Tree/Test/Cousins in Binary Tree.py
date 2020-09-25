@@ -79,8 +79,8 @@ class Solution:
             else:
                 pass
         return False
-                
-root = TreeNode([1,2,3,null,4,null,5],)       
+"""
+root = TreeNode([1,2,3,null,4,null,5])       
 isCousins(root: TreeNode, x: int, y: int)
 
 #Works:
@@ -92,3 +92,4 @@ isCousins(root: TreeNode, x: int, y: int)
 [1,2,3,null,4,null,5]
 5
 4
+    """
