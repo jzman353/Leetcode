@@ -1,4 +1,4 @@
-30%
+#30%
 """
 1033. Moving Stones Until Consecutive
 Easy
