@@ -38,10 +38,10 @@ Constraints:
 
 #98%
 class RecentCounter:
-    import collections
     
     def __init__(self):
-        self.c_list = deque()
+        import collections
+        self.c_list = collections.deque()
 
     def ping(self, t: int) -> int:
         self.c_list.append(t)
