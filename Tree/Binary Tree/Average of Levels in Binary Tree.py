@@ -1,4 +1,5 @@
 """
+22%
 637. Average of Levels in Binary Tree
 Easy
 Given a non-empty binary tree, return the average value of the nodes on each level in the form of an array.
