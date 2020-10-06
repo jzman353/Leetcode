@@ -140,3 +140,6 @@ def cross(A, B):
 suits = 'SHDC'
 ranks = 'A23456789TJQK'
 deck  = cross(ranks, suits)
+
+combining a list of numbers to a string:
+ans = ''.join(map(str, LIST))
