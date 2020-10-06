@@ -106,3 +106,37 @@ x = [[foo for i in range(10)] for j in range(10)]
 
 remove multiple items from a list in one line:
 list = [e for e in original_list if e not in [1,2,3]]
+
+find out if the sum of three dice rolls is prime:
+
+def P(event, space):
+    """The probability of an event, given a sample space of equiprobable outcomes.
+    event can be either a set of outcomes, or a predicate (true for outcomes in the event)."""
+    if is_predicate(event):
+        event = such_that(event, space)
+    return Fraction(len(event & space), len(space))
+
+is_predicate = callable
+
+def such_that(predicate, collection):
+    "The subset of elements in the collection for which the predicate is true."
+    return {e for e in collection if predicate(e)}
+
+D3 = {(d1, d2, d3) for d1 in D for d2 in D for d3 in D}
+
+def prime_sum(outcome): return is_prime(sum(outcome))
+
+def is_prime(n): return n > 1 and not any(n % i == 0 for i in range(2, n))
+
+P(prime_sum, D3)
+
+
+Make a list of all the cards in a deck
+def cross(A, B):
+    "The set of ways of concatenating one item from collection A with one from B."
+    return {a + b
+            for a in A for b in B}
+
+suits = 'SHDC'
+ranks = 'A23456789TJQK'
+deck  = cross(ranks, suits)
