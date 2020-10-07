@@ -7,12 +7,10 @@ if __name__ == '__main__':
         ans = Test.carPooling(input1,input2)
         print(ans)
 
-    trips = [[2,1,5],[3,3,7]]
-    capacity = 4
-    test(trips, capacity) #False
-    trips = [[2, 1, 5], [3, 3, 7]]
-    capacity = 5
-    test(trips, capacity) #True
+
+    input1 = ["Shogun", "Tapioca Express", "Burger King", "KFC"]
+    input2 = ["KNN", "KFC", "Burger King", "Tapioca Express", "Shogun"]
+    test(input1, input2)  # False
 
     #import timit
     #print(timeit.timeit("test([1,8,6,2,5,4,8,3,7])", setup="from __main__ import test", number=10))
