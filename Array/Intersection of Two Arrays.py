@@ -1,4 +1,5 @@
 """
+58%
 349. Intersection of Two Arrays
 Easy
 
