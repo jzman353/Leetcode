@@ -2,11 +2,19 @@ class Solution:
     pass
 
 if __name__ == '__main__':
+    def test(input1):
+        Test = Solution()
+        ans = Test.carPooling(input1)
+        print(ans)
+
+    input1 = ["KNN", "KFC", "Burger King", "Tapioca Express", "Shogun"]
+    test(input1)  # False
+
+if __name__ == '__main__':
     def test(input1, input2):
         Test = Solution()
         ans = Test.carPooling(input1,input2)
         print(ans)
-
 
     input1 = ["Shogun", "Tapioca Express", "Burger King", "KFC"]
     input2 = ["KNN", "KFC", "Burger King", "Tapioca Express", "Shogun"]
