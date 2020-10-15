@@ -16,10 +16,11 @@ if __name__ == '__main__':
         Test = Solution()
         ans = Test.carPooling(input1,input2)
         print(ans)
+        return ans
 
     input1 = ["Shogun", "Tapioca Express", "Burger King", "KFC"]
     input2 = ["KNN", "KFC", "Burger King", "Tapioca Express", "Shogun"]
-    test(input1, input2)  # False
+    assert test(input1, input2) == False
 
     #import timit
     #print(timeit.timeit("test([1,8,6,2,5,4,8,3,7])", setup="from __main__ import test", number=10))

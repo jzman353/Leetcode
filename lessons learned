@@ -156,3 +156,13 @@ ans = []
 for j, k in zip(list1, list2):
     ans.append(j)
     ans.append(k)
+
+find all indexes of a char in a string:
+def find1(str, ch):
+  # 0.100 seconds for 1MB str
+  npbuf = np.frombuffer(str, dtype=np.uint8) # Reinterpret str as a char buffer
+  return np.where(npbuf == ord(ch))          # Find indices with numpy
+
+def find2(str, ch):
+  # 0.920 seconds for 1MB str
+  return [i for i, c in enumerate(str) if c == ch] # Find indices with python
