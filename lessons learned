@@ -150,3 +150,9 @@ l1 = [1,"hi",None]
 l2 = l1 #This changes the memory location of l2
 #creating a deep copy of a list
 l2 = l1[:] #This does not change the memory location of l2
+
+zip two lists into one:
+ans = []
+for j, k in zip(list1, list2):
+    ans.append(j)
+    ans.append(k)

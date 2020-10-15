@@ -4,11 +4,12 @@ class Solution:
 if __name__ == '__main__':
     def test(input1):
         Test = Solution()
-        ans = Test.carPooling(input1)
+        ans = Test.specialArray(input1)
         print(ans)
+        return ans
 
-    input1 = ["KNN", "KFC", "Burger King", "Tapioca Express", "Shogun"]
-    test(input1)  # False
+    input1 = [3,5]
+    assert test(input1) == 2
 
 if __name__ == '__main__':
     def test(input1, input2):
