@@ -8,8 +8,7 @@ if __name__ == '__main__':
         print(ans)
         return ans
 
-    input1 = [3,5]
-    assert test(input1) == 2
+    assert test([3,5]) == 2
 
 if __name__ == '__main__':
     def test(input1, input2):
@@ -18,9 +17,7 @@ if __name__ == '__main__':
         print(ans)
         return ans
 
-    input1 = ["Shogun", "Tapioca Express", "Burger King", "KFC"]
-    input2 = ["KNN", "KFC", "Burger King", "Tapioca Express", "Shogun"]
-    assert test(input1, input2) == False
+    assert test([3,5], [3,5]) == False
 
     #import timit
     #print(timeit.timeit("test([1,8,6,2,5,4,8,3,7])", setup="from __main__ import test", number=10))

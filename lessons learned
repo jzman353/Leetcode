@@ -169,3 +169,7 @@ def find2(str, ch):
 
 get kth column of a matrix:
 res = [sub[K] for sub in test_list]
+
+finding columns of a list of lists:
+return sum([list(col) != sorted(col) for col in zip(*A)])
+The * indicates that A is an iterable
