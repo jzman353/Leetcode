@@ -166,3 +166,6 @@ def find1(str, ch):
 def find2(str, ch):
   # 0.920 seconds for 1MB str
   return [i for i, c in enumerate(str) if c == ch] # Find indices with python
+
+get kth column of a matrix:
+res = [sub[K] for sub in test_list]
