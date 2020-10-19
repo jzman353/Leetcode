@@ -29,7 +29,7 @@ Note:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def averageOfLevels(self, root: TreeNode) -> List[float]:
+    def averageOfLevels(self, root):
         """
         def height(tree):
             if tree == None:
