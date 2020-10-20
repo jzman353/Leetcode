@@ -173,3 +173,14 @@ res = [sub[K] for sub in test_list]
 finding columns of a list of lists:
 return sum([list(col) != sorted(col) for col in zip(*A)])
 The * indicates that A is an iterable
+
+#Unzips the list and compares each letter to all other letters in all other words until one doesn't match and then breaks
+#group will look like ['f','f','f'] for the first example
+#res will look like ['f','l'] for the first example
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        res = []
+        for group in zip(*strs):
+            if len(set(group)) > 1: break
+            res.append(group[0])
+        return "".join(res)

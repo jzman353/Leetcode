@@ -1,4 +1,5 @@
 """
+94%
 257. Binary Tree Paths
 Easy
 

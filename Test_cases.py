@@ -22,6 +22,11 @@ if __name__ == '__main__':
     #import timit
     #print(timeit.timeit("test([1,8,6,2,5,4,8,3,7])", setup="from __main__ import test", number=10))
 
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 
 if __name__ == '__main__':
     from Needed_Modules import Binary_Tree_Visualizer_from_list as T
