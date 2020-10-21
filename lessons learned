@@ -184,3 +184,6 @@ class Solution:
             if len(set(group)) > 1: break
             res.append(group[0])
         return "".join(res)
+
+Check if counter has only positive values:
+if Counter == Counter()
