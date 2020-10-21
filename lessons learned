@@ -187,3 +187,6 @@ class Solution:
 
 Check if counter has only positive values:
 if Counter == Counter()
+
+find index of max in list
+maxxi = max((v, i) for i, v in enumerate(a))[1]
