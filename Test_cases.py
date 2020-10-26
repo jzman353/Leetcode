@@ -19,6 +19,16 @@ if __name__ == '__main__':
 
     assert test([3,5], [3,5]) == False
 
+if __name__ == '__main__':
+    def test(input1, input2, input3):
+        Test = Solution()
+        ans = Test.champagneTower(input1, input2, input3)
+        print(ans)
+        return ans
+
+
+    assert test([3, 5], [3, 5], True) == False
+
     #import timit
     #print(timeit.timeit("test([1,8,6,2,5,4,8,3,7])", setup="from __main__ import test", number=10))
 

@@ -144,7 +144,6 @@ deck  = cross(ranks, suits)
 combining a list of numbers to a string:
 ans = ''.join(map(str, LIST))
 
-
 l1 = [1,"hi",None]
 #creating a shallow copy of a list
 l2 = l1 #This changes the memory location of l2
