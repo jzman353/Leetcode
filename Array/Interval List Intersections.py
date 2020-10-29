@@ -135,7 +135,7 @@ def intervalIntersection(A, B):
 
 
 
-    '''
+'''
     for i in B:
         for j in range(2*i[0],2*i[1]+1):
             B_list[j] = 1
@@ -157,7 +157,7 @@ def intervalIntersection(A, B):
 	    		res.append(current)
 	    		current = []
     return res
-    '''
+'''
 
 #Runtime: 156 ms Beats 76%
 #Memory Usage: 14.4 MB
