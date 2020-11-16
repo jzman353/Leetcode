@@ -1,4 +1,5 @@
 """
+86%
 200. Number of Islands
 Medium
 
@@ -38,9 +39,8 @@ Constraints:
     grid[i][j] is '0' or '1'.
 """
 
-#Time Limit Exeeded 37/46
 class Solution:
-    def numIslands(self, grid) -> int:
+    def numIslands(self, grid: List[List[str]]) -> int:
         y_len = len(grid)
         x_len = len(grid[0])
         edit = [[0 for i in range(x_len)] for j in range(y_len)]
@@ -52,9 +52,9 @@ class Solution:
                 x = temp[0]
                 y = temp[1]
                 edit[y][x] = 1
-                if x+1 < x_len and grid[y][x+1] == "1":
+                if x+1 < x_len and grid[y][x+1] == "1" and edit[y][x+1] == 0:
                     stack.append([x+1,y])
-                if y+1 < y_len and grid[y+1][x] == "1":
+                if y+1 < y_len and grid[y+1][x] == "1" and edit[y + 1][x] == 0:
                     stack.append([x,y+1])
                 if y - 1 >= 0 and grid[y - 1][x] == "1" and edit[y - 1][x] == 0:
                     stack.append([x, y - 1])
