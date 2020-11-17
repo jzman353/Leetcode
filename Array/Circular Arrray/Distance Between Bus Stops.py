@@ -44,7 +44,7 @@ Constraints:
 """
 
 class Solution:
-    def distanceBetweenBusStops(self, distance: List[int], start: int, destination: int) -> int:
+    def distanceBetweenBusStops(self, distance, start: int, destination: int) -> int:
         one = min(start, destination)
         two = max(start, destination)
         sum1 = 0
