@@ -1,4 +1,9 @@
-"""Given a set of non-overlapping intervals, insert a new interval into the intervals (merge if necessary).
+"""
+#83%
+57. Insert Interval
+Medium
+
+Given a set of non-overlapping intervals, insert a new interval into the intervals (merge if necessary).
 
 You may assume that the intervals were initially sorted according to their start times.
 
@@ -16,6 +21,90 @@ Explanation: Because the new interval [4,8] overlaps with [3,5],[6,7],[8,10].
 NOTE: input types have been changed on April 15, 2019. Please reset to default code definition to get new method signature.
 """
 
+#83%
+import bisect
+class Solution:
+    def insert(self, intervals, newInterval):
+        ans = []
+        i = 0
+        while i < len(intervals):
+            # Let's check if intervals[i] intersects newInterval.
+            # lo - the startpoint of the intersection
+            # hi - the endpoint of the intersection
+            lo = max(intervals[i][0], newInterval[0])
+            hi = min(intervals[i][1], newInterval[1])
+            if lo <= hi:
+                newInterval = [min(intervals[i][0], newInterval[0]), max(intervals[i][1], newInterval[1])]
+            else:
+                ans.append(intervals[i])
+            i += 1
+
+        keys = [r[0] for r in intervals]
+        ans.insert(bisect.bisect_left(keys,newInterval[0]),newInterval)
+        return ans
+
+
+#34%
+"""
+class Solution:
+    def insert(self, intervals, newInterval):
+        ans = []
+        i = 0
+        while i < len(intervals):
+            # Let's check if intervals[i] intersects newInterval.
+            # lo - the startpoint of the intersection
+            # hi - the endpoint of the intersection
+            lo = max(intervals[i][0], newInterval[0])
+            hi = min(intervals[i][1], newInterval[1])
+            if lo <= hi:
+                newInterval = [min(intervals[i][0], newInterval[0]), max(intervals[i][1], newInterval[1])]
+            else:
+                ans.append(intervals[i])
+            i += 1
+
+        ans.append(newInterval)
+        ans.sort(key=lambda x: x[0])
+        return ans
+"""
+if __name__ == '__main__':
+    def test(input1, input2):
+        Test = Solution()
+        ans = Test.insert(input1,input2)
+        print(ans)
+        return ans
+
+    assert test([[1,3],[6,9]], [2,5]) == [[1,5],[6,9]]
+    assert test([[1,2],[3,5],[6,7],[8,10],[12,16]], [4,8]) == [[1,2],[3,10],[12,16]]
+    assert test([], [5, 7]) == [[5, 7]]
+    assert test([[1, 5]], [2, 3]) == [[1, 5]]
+    assert test([[1, 5]], [2, 7]) == [[1, 7]]
+    assert test([[0,1],[5,5],[6,7],[9,11]], [12,21]) == [[0, 1], [5, 5], [6, 7], [9, 11], [12, 21]]
+    assert test([[0,1],[5,5]], [1,2]) == [[0, 2], [5, 5]]
+
+"""
+def insert(self, intervals, I):
+    #res contains all the intervals before any influence from the newly inserted interval, i counts the number of intervals that will come after any influence from the newly inserted interval
+    res, i = [], -1
+    for count, (x, y) in enumerate(intervals):
+        #If the current interval comes before any influence from the newly inserted interval
+        if y < I[0]:
+            res.append([x, y])
+        #If the current interval comes after any influence from the newly inserted interval
+        elif I[1] < x:
+            i -= 1
+            break
+        #If there is some overlap
+        else:
+            I[0] = min(I[0], x)
+            I[1] = max(I[1], y)
+            
+    return res + [I] + intervals[i+1:]
+"""
+
+
+
+
+"""
 #119/154 Wrong Answer
 def insert(intervals, newInterval):
     total_intervals = []
@@ -72,7 +161,7 @@ def insert(intervals, newInterval):
                     temp.append(total_intervals[i])
                     output.append(temp)
     return output
-
+"""
 """#28/154 Memory limit exceeded #[[1,5],[10,11],[15,2147483647]],[5,7]
 def insert(intervals, newInterval):
     total_intervals = []
@@ -124,31 +213,3 @@ def insert(intervals, newInterval):
                     temp.append(total_intervals[i])
                     output.append(temp)
     return output"""
-
-print(insert([[1,3],[6,9]], [2,5])) #[[1,5],[6,9]]
-print(insert([[1,2],[3,5],[6,7],[8,10],[12,16]], [4,8])) #[[1,2],[3,10],[12,16]]
-print(insert([[0,1],[5,5],[6,7],[9,11]], [12,21])) #[[0, 1], [5, 5], [6, 7], [9, 11], [12, 21]]
-print(insert([[0,1],[5,5]], [1,2])) #[[0, 2], [5, 5]]
-
-#print(insert([[1,5],[10,11],[15,2147483647]],[5,7])) #28/154
-print(insert([[1,5]], [2,3])) # [[1,5]] #119/154
-
-"""
-def insert(self, intervals, I):
-    #res contains all the intervals before any influence from the newly inserted interval, i counts the number of intervals that will come after any influence from the newly inserted interval
-    res, i = [], -1
-    for count, (x, y) in enumerate(intervals):
-        #If the current interval comes before any influence from the newly inserted interval
-        if y < I[0]:
-            res.append([x, y])
-        #If the current interval comes after any influence from the newly inserted interval
-        elif I[1] < x:
-            i -= 1
-            break
-        #If there is some overlap
-        else:
-            I[0] = min(I[0], x)
-            I[1] = max(I[1], y)
-            
-    return res + [I] + intervals[i+1:]
-"""
