@@ -1,5 +1,5 @@
 #Open the word list file (stored in a different folder) and read it line by line
-words_file = open("../../Needed_Modules/Word_List.txt", "r")
+words_file = open("../../../Needed_Modules/Word_List.txt", "r")
 english_words = words_file.read().splitlines()
 
 # Dictionary representing the morse code chart
