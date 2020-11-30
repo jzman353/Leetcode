@@ -1,6 +1,7 @@
 heapq is a min heap setup built in to python
 heapq.heapify(heap) will turn a list (heap) into a heap item
 https://docs.python.org/2/library/heapq.html
+See problem: Minimum cost to connect sticks
 
 collections is a more complex list of datatypes available in python
 https://docs.python.org/2/library/collections.html
@@ -190,3 +191,5 @@ if Counter == Counter()
 
 find index of max in list
 maxxi = max((v, i) for i, v in enumerate(a))[1]
+
+https://leetcode.com/discuss/interview-question/344650/Amazon-Online-Assessment-Questions
