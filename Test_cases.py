@@ -8,6 +8,15 @@ if __name__ == '__main__':
         print(ans)
         return ans
 
+    assert test(3) == 2
+
+if __name__ == '__main__':
+    def test(input1):
+        Test = Solution()
+        ans = Test.specialArray(input1)
+        print(ans)
+        return ans
+
     assert test([3,5]) == 2
 
 if __name__ == '__main__':

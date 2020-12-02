@@ -193,3 +193,56 @@ find index of max in list
 maxxi = max((v, i) for i, v in enumerate(a))[1]
 
 https://leetcode.com/discuss/interview-question/344650/Amazon-Online-Assessment-Questions
+
+Piperclip has copy and paste functions in python to use the computer’s clipboard
+
+Using the command line for python3:
+The shebang line tells your computer that you want to run the script using python 3
+On windows, you can bring up the Run dialog by pressing Win+R
+A batch file can save you a lot of typing by running multiple commands
+The batch files you’ll make will look like this:
+
+@py C:\Users\Al\MyPythonScripts\hello.py %*
+@pause
+
+You’ll need to add the MyPythonScripts folder to the PATH environment variable first
+Command-line arguments can be read in the sys.argv list
+
+Regular expressions objects:
+Import re
+Because regular expressions have a lot of backslashes in them, use raw strings formatted like r''
+Find all phone numbers in a message:
+import re
+phoneNumRegex = re.compile(r'\d\d\d-\d\d\d-\d\d\d\d')
+#Create a match object
+#Search finds the first phone number in the message
+mo = phoneNumRegex.search('Call me at 555-555-5555 tomorrow')
+print(mo.group())
+#Findall finds all of the numbers
+mo = phoneNumRegex.findall('Call me at 555-555-5555 tomorrow')
+print(mo.group())
+Regular expressions are mini-language for speyfying text patterns. Writing code to do pattern matching without regular expressions is a huge pain.
+Regex strings often use \ backslashes like \d so they are often raw strings
+Import re module first
+Call the re.compile() function to create a regex object
+Call the regex object search() method to create a match object
+Call the match object's group() method to get the matched string
+\d is the regex for a numeric digit character
+Groups are created in regex strings with parentheses
+The first set of parentheses is group1, the second is 2 and so on.
+Calling group() or group(0) returns the full matching string, group(1) returns group 1's matching string, and so on
+Use \( and \) to match literal parentheses in the regex string
+The pipe | character can match one of many possible groups
+The ? says the group matches 0 or 1 times
+the * says the group matches 0+ times
+the + says the group matches 1+ times
+The curly braces can match a specific number of times
+The curly braces with two numbers matches a minimum and a maximum number of times
+Leaving out the first or second number in the curly braces says there is no minimum or maximum respectively
+Greedy matching - match the longest string possible, nongreedy matching - match the shortest string posssible
+Putting a question mark after the curly braces makes it do a nongreedy match
+
+
+
+
+
