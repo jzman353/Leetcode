@@ -241,8 +241,67 @@ The curly braces with two numbers matches a minimum and a maximum number of time
 Leaving out the first or second number in the curly braces says there is no minimum or maximum respectively
 Greedy matching - match the longest string possible, nongreedy matching - match the shortest string posssible
 Putting a question mark after the curly braces makes it do a nongreedy match
+#! python3
+# phoneAndEmail.py - Finds phone numbers and email addresses on the clipboard.
+import pyperclip, re
+#Create a Regex for Phone Numbers
+phoneRegex = re.compile(r'''(
+    (\d{3}|\(\d{3}\))?                # area code
+    (\s|-|\.)?                        # separator
+    (\d{3})                           # first 3 digits
+    (\s|-|\.)                         # separator
+    (\d{4})                           # last 4 digits
+    (\s*(ext|x|ext.)\s*(\d{2,5}))?    # extension
+    )''', re.VERBOSE)
+#Create a Regex for Email Addresses
+emailRegex = re.compile(r'''(
+    [a-zA-Z0-9._%+-]+      # username
+    @                      # @ symbol
+    [a-zA-Z0-9.-]+         # domain name
+    (\.[a-zA-Z]{2,4})      # dot-something
+    )''', re.VERBOSE)
+# Find matches in clipboard text.
+text = str(pyperclip.paste())
+matches = []
+for groups in phoneRegex.findall(text):
+    phoneNum = '-'.join([groups[1], groups[3], groups[5]])
+    if groups[8] != '':
+        phoneNum += ' x' + groups[8]
+    matches.append(phoneNum)
+for groups in emailRegex.findall(text):
+    matches.append(groups[0])
+#Copy results to the clipboard.
+if len(matches) > 0:
+    pyperclip.copy('\n'.join(matches))
+    print('Copied to clipboard:')
+    print('\n'.join(matches))
+else:
+    print('No phone numbers or email addresses found.')
 
+Use logging instead of print statements to debug
+os.walk() searches through directory
+Raise and assert for errors
+use zipfile for zip files
+Safe deletes with send2trash
+moving and renaming files: shutil.move('C:\\bacon.txt', 'C:\\eggs\\new_bacon.txt')
+webbrowser - opens a browser to a specific page
+requests downloads files and web pages from the internet http://requests.readthedocs.org/
+Beautiful Soup - Parses HTML, the format that web pages are written in
+Selenium - Launches and controls a web browser/ Selenium is able to fill in forms and simulate mouse clicks in this browser
+Pragmatic unicode - bit.ly/unipain
 
+html tutorials: http://htmldog.com/guides/html/beginner/ http://www.codecademy.com/tracks/web/ https://developer.mozilla.org/en-US/learn/html/
 
+import requests, bs4
+def getAmazonPrice(productUrl):
+    res = requests.get(productUrl)
+    res.raise_for_status()
 
+    soup = bs4.BeautifulSoup(res.text, 'html.parser')
+    #Go to web page, right click on price, inspect element, copy path name
+    elems = soup.select('html.a-ws.a-js.a-audio.a-video.a-canvas.a-svg.a-drag-drop.a-geolocation.a-history.a-webworker.a-autofocus.a-input-placeholder.a-textarea-placeholder.a-local-storage.a-gradients.a-transform3d.-scrolling.a-text-shadow.a-text-stroke.a-box-shadow.a-border-radius.a-border-image.a-opacity.a-transform.a-transition.a-ember body.a-m-us.a-aui_72554-c.a-aui_control_group_273125-t1.a-aui_dropdown_274033-t1.a-aui_link_rel_noreferrer_noopener_274172-c.a-aui_mm_desktop_exp_291916-c.a-aui_mm_desktop_launch_291918-c.a-aui_mm_desktop_targeted_exp_291928-t1.a-aui_mm_desktop_targeted_launch_291922-t1.a-aui_pci_risk_banner_210084-c.a-aui_perf_130093-c.a-aui_preload_261698-c.a-aui_tnr_v2_180836-c div#a-page div#dp.musical_instruments.en_US div#dp-container.a-container div#ppd div#rightCol.rightCol.rightCol-bbcxoverride div#desktop_buybox.celwidget div#buybox div#qualifiedBuybox.celwidget div.a-section form#addToCart.a-content div.a-box-group div.a-box.a-last div.a-box-inner div.a-section.a-spacing-none.a-padding-none div#priceInsideBuyBox_feature_div.celwidget div.a-section span#price_inside_buybox.a-size-medium.a-color-price')
+    return elems[0].text.strip()
 
+ideas for web scraping:
+get weather data from www.weather.gov
+go to xkcd.com and download all the funny images
