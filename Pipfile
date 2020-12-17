@@ -11,6 +11,7 @@ sympy = "*"
 matplotlib = "*"
 requests = "*"
 beautifulsoup4 = "*"
+pypdf2 = "*"
 
 [requires]
 python_version = "3.8"

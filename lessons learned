@@ -305,3 +305,200 @@ def getAmazonPrice(productUrl):
 ideas for web scraping:
 get weather data from www.weather.gov
 go to xkcd.com and download all the funny images
+
+For excel:
+Use openpyxl module
+Although Excel is proprietary software from Microsoft, there are free alternatives that run on Windows, OS X, and Linux. Both LibreOffice Calc and OpenOffice Calc work with Excel’s .xlsx file format for spreadsheets, which means the openpyxl module can work on spreadsheets from these applications as well.
+import openpyxl
+import os
+os.chdir('c:folder path with file in it')
+workbook = openpyxl.load_workbook('example.xlsx')
+workbook.get_sheet_names()
+workbook.get_active_sheet()
+sheet = workbook.get_sheet_by_name('Sheet1')
+cell = sheet['A1']
+cell.value
+str(sheet['A1'].value)
+sheet.cell(row=1,column=2) #row and column start at 1, not 0
+for i in range(1,8):
+    print(i,sheet.cell(row=i,column=2.value)
+get_column_letter(1) = 'A'
+
+#Create a new excel workbook
+import openpyxl
+wb = openpyxl.Workbook() #Excel always creates a new workbook with three sheets named sheet1, sheet2, sheet3
+wb.get_sheet_names()
+sheet = wb.get_sheet_by_name("Sheet")
+sheet['A1'].value == None #True
+sheet['A1'] = 42
+sheet['A2'] = 'hello'
+import os
+os.chdir('c:folder path')
+wb.save('example.xlsx')
+sheet2 = wb.create_sheet()
+sheet2.title = "my new sheet name"
+wb.save('example.xlsx')
+wb.create_sheet(index = 0, title = 'new sheet')
+wb.save('example.xlsx')
+
+Reading and editing PDFs
+import PyPDF2
+pdfFile = open('example.pdf','rb') #read binary
+reader = PyPDF2.PdfFileReader(pdfFile)
+reader.numPages # Returns number of pages
+page = reader.getPage(0)
+page.extractText() #Returns string
+for i in range(reader.numPages):
+    print(reader.getPage(pageNum).extractText())
+You can add pages or remove pages of the PDF
+
+Combine PDFs:
+>>> import PyPDF2
+>>> pdf1File = open('meetingminutes.pdf', 'rb')
+>>> pdf2File = open('meetingminutes2.pdf', 'rb')
+>>> pdf1Reader = PyPDF2.PdfFileReader(pdf1File)
+>>> pdf2Reader = PyPDF2.PdfFileReader(pdf2File)
+>>> pdfWriter = PyPDF2.PdfFileWriter()
+>>> for pageNum in range(pdf1Reader.numPages):
+    pageObj = pdf1Reader.getPage(pageNum)
+    pdfWriter.addPage(pageObj)
+>>> for pageNum in range(pdf2Reader.numPages):
+    pageObj = pdf2Reader.getPage(pageNum)
+    pdfWriter.addPage(pageObj)
+>>> pdfOutputFile = open('combinedminutes.pdf', 'wb')
+>>> pdfWriter.write(pdfOutputFile)
+>>> pdfOutputFile.close()
+>>> pdf1File.close()
+>>> pdf2File.close()
+
+Rotating Pages:
+>>> import PyPDF2
+>>> minutesFile = open('meetingminutes.pdf', 'rb') >>> pdfReader = PyPDF2.PdfFileReader(minutesFile)
+➊ >>> page = pdfReader.getPage(0) ➋
+>>> page.rotateClockwise(90)
+>>> pdfWriter = PyPDF2.PdfFileWriter()
+>>> pdfWriter.addPage(page)
+➌ >>> resultPdfFile = open('rotatedPage.pdf', 'wb')
+>>> pdfWriter.write(resultPdfFile)
+>>> resultPdfFile.close()
+>>> minutesFile.close()
+
+PDFtables - convert PDF to excel
+
+PyPDF2
+Overlaying pages (Adding a watermark)
+Encrypting PDFs #Using password that you provide
+Combine specific pages of PDFs
+Remove certain pages from PDF
+Reorder pages in a PDF
+Create a PDF from only the pages that have some specific text, identified by extractText()
+
+word documents:
+import .docx
+
+Have programs run in the background or wait for a specific time/date to run
+import time
+import datetime
+Thread the code - have more than one processor run the code at once to run multiple lines of code simultaneously
+import threading
+
+Launching other programs from Python
+import subprocess
+On Windows, right-click the application’s Start menu item and select Properties to view the application’s filename. On OS X, CTRL-click the application and select Show Package Contents to find the path to the executable file.
+>>> subprocess.Popen(['open', '/Applications/Calculator.app/'])
+>>> subprocess.Popen(['C:\\python34\\python.exe', 'hello.py'])
+
+Making an executable app with Python on Mac
+The method we’re gonna use for us Mac users follows the same concept as the way described above for Windows. The goal is to create an executable file that we then will be able to double click on.
+https://martechwithme.com/convert-python-script-app-windows-mac/
+
+To do so, let’s open our favorite text editor and input these lines :
+#!/bin/sh
+Python /Users/yanissilloul/Documents/instabot-master/examples/like_hashtags_copy.py neonphotography
+
+As you can see, the only thing required is the full path of the script followed by the arguments if required. Don’t forget to precede this filepath with the mention “Python”. Also, the first line has to be exactly like it is shown in the code snippet above this paragraph.
+When saving your file, make sure no file extension is specified.
+Then, copy the filepath of this newly created file into your clipboard and launch your Terminal.
+The next thing we want to do is write “chmod 755”, paste the path name previously copied in our clipboard and execute this command.
+This will convert our extensionless file into a Unix executable that you will be able to double click on to launch your script. You could already stop at that step but for organization purposes and in order to schedule the scripts in the next article, there is still a couple of steps left to do. If you were just looking for an easy way to run your script by double-clicking on a file, you don’t need to go further 🙂
+Finally, if you want a real application file instead of a simple Unix executable that you will be able to schedule, we can do so by launching Automator.
+After launching the program, choose to create an “Application”.
+In the list of actions on the left side, get the parameter “Get Specified Finder Items”. Once you added it to your right panel in Automator, you should be able to “Add” an item to this action. At this point, you want to browse through your files and select your Unix Executable.
+After that, we need to add a new action, namely “Open Finder Items”. This will trigger to open the file selected previously in its default application.
+All that’s left is to save. Choose a name that you will recognize and you will now have your own .app file ready to be launched!
+And this wraps up our tutorial for the Mac users. I hope this is gonna allow you to spend less time on launching your scripts and more time on creating new ones.
+Considering that I know how easy it is to forget to launch a script, especially if you have to do it every day, the next article is covering how to schedule these newly created executable files so that our operating systems will take care of launching those following a set schedule.
+
+Email:
+import smtplib
+For the password you will input into Python, you will need an app specific password, not your main google password
+To get the app specific password, you can google: "gmail app specific password"
+Then, you can find details for generating an app specific password
+
+Gmail prevents spam by limiting you to 100 or 150 emails per day. Other email providers may have different rules.
+
+For the password steps, always use input() to prompt the user to enter the password this way instead of writing it in plain text
+
+The SMTP is the protocol for sending email while the IMAP specifies how to communcate with an email provider's server to retrieve emails sent to your email address.
+You can use import imaplib but import imapclient is easier to use
+The imapclient module downloads emails from an IMAP server in a rather complicated format. Most likely, you’ll want to convert them from this format into simple string values. The pyzmail module does the hard job of parsing these email messages for you. You can find the complete documentation for PyzMail at
+
+Size Limits
+If your search matches a large number of email messages, Python might raise an exception thatsaysimaplib.error: got more than 10000 bytes.Whenthishappens,youwill have to disconnect and reconnect to the IMAP server and try again.
+This limit is in place to prevent your Python programs from eating up too much memory. Unfortunately, the default size limit is often too small. You can change this limit from 10,000 bytes to 10,000,000 bytes by running this code:
+>>> import imaplib
+>>> imaplib._MAXLINE = 10000000
+Perform searches using google's advanced searching algorithm
+UIDs = imapObj.gmail_search('meaning of life')
+
+Search for and delete emails
+
+Sending text messages with Twilio
+Twilio is an SMS gateway service, which means it’s a service that allows you to send text messages from your programs. Although you will be limited in how many texts you can send per month and the texts will be prefixed with the words Sent from a Twilio trial account, this trial service is probably adequate for your personal programs. The free trial is indefinite; you won’t have to upgrade to a paid plan later.
+Twilio isn’t the only SMS gateway service. If you prefer not to use Twilio, you can find alternative services by searching online for free sms gateway, python sms api, or even twilio alternatives.
+
+You will need two more pieces of information: your account SID and the auth (authentication) token
+
+>>> from twilio.rest import TwilioRestClient
+>>> accountSID = 'ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' >>> authToken = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+➋ >>> twilioCli = TwilioRestClient(accountSID, authToken) >>> myTwilioNumber = '+14955551234'
+>>> myCellPhone = '+14955558888'
+➌ >>> message = twilioCli.messages.create(body='Mr. Watson - Come here - I want to see you.', from_=myTwilioNumber, to=myCellPhone)
+
+As a simple example, here’s a small Python program with a textmyself() function that sends a message passed to it as a string argument. Open a new file editor window and enter the following code, replacing the account SID, auth token, and phone numbers with your own information. Save it as textMyself.py.
+#! python3
+# textMyself.py - Defines the textmyself() function that texts a message # passed to it as a string.
+# Preset values:
+accountSID = 'ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' authToken = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' myNumber = '+15559998888'
+twilioNumber = '+15552225678'
+from twilio.rest import TwilioRestClient
+➊ def textmyself(message):
+➋ twilioCli = TwilioRestClient(accountSID, authToken)
+➌ twilioCli.messages.create(body=message, from_=twilioNumber, to=myNumber)
+This program stores an account SID, auth token, sending number, and receiving number. It then defined textmyself() to take on argument ➊, make a TwilioRestClient object ➋, and call create() with the message you passed ➌.
+If you want to make the textmyself() function available to your other programs, simply place the textMyself.py file in the same folder as the Python executable (C:\Python34 on Windows, /usr/local/lib/python3.4 on OS X, and /usr/bin/python3 on Linux). Now you can use the function in your other programs. Whenever you want one of your programs to text you, just add the following:
+import textmyself
+textmyself.textmyself('The boring task is finished.')
+You need to sign up for Twilio and write the texting code only once. After that, it’s just two lines of code to send a text from any of your other programs.
+
+Umbrella Reminder
+Chapter 11 showed you how to use the requests module to scrape data from http://weather.gov/. Write a program that runs just before you wake up in the morning and checks whether it’s raining that day. If so, have the program text you a reminder to pack an umbrella before leaving the house.
+Auto Unsubscriber
+
+Manipulating images - rotations, flipping, resizing, cropping, drawing
+import Pillow
+from PIL import ImageColor
+ImageColor.getcolor('red', 'RGBA')
+Standard color names:
+https://html-color-codes.info/color-names/
+
+Chapter 18. Controlling the Keyboard and Mouse with GUI Automation
+pyautogui module
+sudo pip3 install pyobjc-framework-Quartz,sudo pip3 install pyobjc-core,andthensudo pip3 install pyobjc
+pip3 install pyautogui
+
+Before you jump in to a GUI automation, you should know how to escape problems that may arise. Python can move your mouse and type keystrokes at an incredible speed. In fact, it might be too fast for other programs to keep up with. Also, if something goes wrong but your program keeps moving the mouse around, it will be hard to tell what exactly the program is doing or how to recover from the problem. Like the enchanted brooms from Disney’s The Sorcerer’s Apprentice, which kept filling — and then overfilling — Mickey’s tub with water, your program could get out of control even though it’s following your instructions perfectly. Stopping the program can be difficult if the mouse is moving around on its own, preventing you from clicking the IDLE window to close it. Fortunately, there are several ways to prevent or recover from GUI automation problems.
+PyAutoGUI also has a fail-safe feature. Moving the mouse cursor to the upper-left corner of the screen will cause PyAutoGUI to raise the pyautogui.FailSafeException exception.
+
+
+

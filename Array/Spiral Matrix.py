@@ -35,7 +35,7 @@ class Solution:
             length -= 1
             for i in range(length):
                 ans.append(matrix[i][-col])
-            
+
         return ans
 
 if __name__ == '__main__':
