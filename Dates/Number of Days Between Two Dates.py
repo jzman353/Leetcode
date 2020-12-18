@@ -21,7 +21,7 @@ Constraints:
 
     The given dates are valid dates between the years 1971 and 2100.
 """
-"""100%
+#100%
 class Solution:
     def daysBetweenDates(self, date1: str, date2: str) -> int:
         from datetime import date
@@ -29,6 +29,7 @@ class Solution:
         d2 = date.fromisoformat(date2)
         diff = d2-d1
         return abs(diff.days)
+
 """
 class Solution:
     def daysBetweenDates(self, date1: str, date2: str) -> int:
@@ -53,6 +54,7 @@ class Solution:
                 diff = 1
         if months != 0:
             pass
+"""
 
 if __name__ == '__main__':
     def test(input1, input2):
