@@ -51,8 +51,8 @@ Constraints:
     s contains only lowercase English letters.
     p contains only lowercase English letters, '.', and '*'.
 """
-
-
+"""
+#Attempt #1 - Doesn't work
 class Solution:
     def isMatch(self, s: str, p: str) -> bool:
         index = 0
@@ -75,6 +75,17 @@ class Solution:
             elif i == "*":
                 pass
             return True
+"""
+#35%
+import re
+class Solution:
+    def isMatch(self, s: str, p: str) -> bool:
+        Regex = re.compile(p)
+        mo1 = Regex.search(s)
+        #print(mo1)
+        #print(mo1.group())
+        return mo1 and mo1.group() == s
+
 
 if __name__ == '__main__':
     def test(input1, input2):
@@ -84,10 +95,11 @@ if __name__ == '__main__':
         return ans
 
     assert test("aa", "a") == False
-    assert test("aa", "a*") == False
-    assert test("aa", ".*") == True
+    assert test("aa", "a*") == True
+    assert test("ab", ".*") == True
     assert test("aab", "c*a*b") == True
     assert test("mississippi", "mis*is*p*") == False
+    assert test("ab", ".*c") == False
 
 
 
