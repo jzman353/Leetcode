@@ -32,7 +32,10 @@ Input: 701
 Output: "ZY"
 """
 
-import math
+#another sulution is
+# import openpyxl
+# get_column_letter(900)
+# Reverse is column_index_from_string('AA')
 class Solution:
     def convertToTitle(self, n: int) -> str:
         ans = ""
