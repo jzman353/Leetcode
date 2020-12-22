@@ -17,7 +17,7 @@ if __name__ == '__main__':
         print(ans)
         return ans
 
-    assert test([3,5], [3,5]) == False
+    assert test(2, 2) == False
 
 if __name__ == '__main__':
     def test(input1, input2, input3):

@@ -22,7 +22,7 @@ Note:
     points[i].length == 2
     0 <= points[i][j] <= 100
 """
-
+#57%
 import collections
 import math
 class Solution:

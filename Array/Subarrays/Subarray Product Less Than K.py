@@ -15,7 +15,8 @@ Note:
 0 < nums[i] < 1000.
 0 <= k < 10^6.
 """
-
+"""
+#First attempt: nested loop Time limit exceeded
 class Solution:
     def numSubarrayProductLessThanK(self, nums, k: int) -> int:
         #ans = []
@@ -24,26 +25,43 @@ class Solution:
             j = nums[i]
             count = 1
             while j < k and i+count-1<len(nums):
-                """
-                temp = []
-                for c in range(count):
-                    temp.append(nums[i+c])
-                ans.append(temp)
-                """
                 ans1 += 1
                 if i+count < len(nums):
                     j *= nums[i+count]
                 count += 1
         return ans1
+"""
+#Second attempt: no nested loops
+import math
+class Solution:
+    def sumDown(self, n):
+        res = 0
+        for i in range(1, n+1):
+            res += i
+        return res
+    def numSubarrayProductLessThanK(self, nums, k: int) -> int:
+        ans = 0
+        i = 0
+        while i < len(nums):
+            j = nums[i]
+            count = 1
+            while j < k and i+count < len(nums):
+                j *= nums[i+count]
+                count += 1
+            ans += self.sumDown(count) #factorial is for multiplication but we want the sum of the numbers below it (for 3, we want the sum of 2 and 1, for 4, we want the sum of 3 and 2 and 1)
+            i += count
+        return ans-1
 
-def test(input1,input2):
-    Test = Solution()
-    print(Test.numSubarrayProductLessThanK(input1,input2))
+if __name__ == '__main__':
+    def test(input1, input2):
+        Test = Solution()
+        ans = Test.numSubarrayProductLessThanK(input1,input2)
+        print(ans)
+        return ans
 
-nums = [10,5,2,6]
-k = 100
-
-test(nums,k) #8
+    #assert test([10,5,2,6], 100) == 8
+    #assert test([10,5,2,6,5], 100) == 11
+    assert test([10,5,2,6,5,100,1,2,33,6],100) == 18
 
 """
 Approach #1: Binary Search on Logarithms [Accepted]
