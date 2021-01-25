@@ -91,6 +91,8 @@ sorted_A = sorted(range(len(A)), key=lambda k: A[k])
 Array > Medium Width Ramp
 Sorting a list of lists by one of the indexes:
 l.sort(key=lambda x: x[1])
+Sorting by two fields:
+dominoes.sort(key=lambda x: (x[0], x[1]))
 
 collections.Counter is useful for counting occurrences in lists
 itertools product is useful when you need permutations with repetition allowed
