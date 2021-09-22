@@ -22,36 +22,43 @@ Divide the numbers in ranges like [2-3], [4-7], [8-15] and so on. And try to gen
 Or does the odd/even status of the number help you in calculating the number of 1s?
 '''
 
-def countBits(num: int):
-        count_ones = 0
-        if num % 2 == 1:
-            count_ones += 1
-        x = 1
-        while 2**x <= num:
-            x *= 2
-        x /= 2
-        if x == 0.5:
-            output = [count_ones]
-        elif x == 1:  # num is 2 or higher
-            count_ones += 1  # MSB
-        else:
-            count_ones += 1  # MSB
-            for i in range(int(x), 1, -1):
-                if x % i == 1:
-                    count_ones += 1
 
-        return count_ones
-
-'''
-print(countBits(0))
-print(countBits(1))
-print(countBits(2))
-print(countBits(3))
-print(countBits(4))
-print(countBits(5))
-'''
-print(countBits(6))
+# 44%
+class Solution:
+    def countBits(self, n: int):
+        res = []
+        for i in range(n + 1):
+            x = str(bin(i))[2:].count('1')
+            res.append(x)
+        return res
 
 
+if __name__ == '__main__':
+    def test(input1):
+        Test = Solution()
+        ans = Test.countBits(input1)
+        print(ans)
+        return ans
 
 
+    assert test(0) == [0]
+    assert test(1) == [0, 1]
+    assert test(2) == [0, 1, 1]
+    assert test(3) == [0, 1, 1, 2]
+    assert test(4) == [0, 1, 1, 2, 1]
+    assert test(5) == [0, 1, 1, 2, 1, 2]
+
+"""
+class Solution:
+    def countBits(self, n: int) -> List[int]:
+        ans = [0] * (n + 1)  # Initialize the answer with all 0s
+
+        for i in range(1, n + 1):
+            ans[i] = ans[i >> 1] + (i & 1)  # Bitwise and the number with 1 to see if it is even or odd. If it is 
+            # odd, add one to the result. Add this value to the value of all lower order values using the bitwise 
+            # shift operator. Note that 7 = 111 and that will become 11 after the bitwise shift (3). The 3 result 
+            # will already be counted because it added the odd 1's place bit during the 1 and 3 calculations. The 
+            # last 1's bit (1's place in #7) is added with the bitwise and operator part. 
+
+        return ans
+"""
