@@ -1,5 +1,5 @@
 """
-84%
+87%
 929. Unique Email Addresses
 Easy
 
@@ -35,7 +35,7 @@ Note:
     All local and domain names are non-empty.
     Local names do not start with a '+' character.
 """
-
+#87%
 class Solution:
     def numUniqueEmails(self, emails) -> int:
         l = []
