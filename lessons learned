@@ -1,3 +1,33 @@
+sorted dict
+for w in sorted(d.keys()):
+    print(w, d[w])
+
+flatten_list = list(chain.from_iterable(grid))
+
+# print(f"{i=} {curr[0]=} {total=} {d=}")
+
+Sorting a list and returning the indexes of the sorted values is often useful
+sorted_A = sorted(range(len(A)), key=lambda k: A[k])
+Sorting a list of lists by one of the indexes:
+l.sort(key=lambda x: x[1])
+Sorting by two fields:
+dominoes.sort(key=lambda x: (x[0], x[1]))
+sorted(inputlist, key=lambda e: (len(e[0]), e[0], e[1]))
+Now you are sorting each element first by the length, then by comparing the first element directly (which in only used when the first element is of equal length), then by the value of the last integer.
+w.sort(key=len)
+
+Initializing a two dimensional list:
+x = [[foo for i in range(10)] for j in range(10)]
+
+remove multiple items from a list in one line:
+list = [e for e in original_list if e not in [1,2,3]]
+
+Check if counter has only positive values:
+if Counter == Counter()
+
+combining a list of numbers to a string:
+ans = ''.join(map(str, LIST))
+
 heapq is a min heap setup built in to python
 heapq.heapify(heap) will turn a list (heap) into a heap item
 https://docs.python.org/2/library/heapq.html
@@ -86,15 +116,7 @@ https://stackoverflow.com/questions/4383571/importing-files-from-different-folde
 import sys
 sys.path.append('../')
 
-Sorting a list and returning the indexes of the sorted values is often useful
-sorted_A = sorted(range(len(A)), key=lambda k: A[k])
 Array > Medium Width Ramp
-Sorting a list of lists by one of the indexes:
-l.sort(key=lambda x: x[1])
-Sorting by two fields:
-dominoes.sort(key=lambda x: (x[0], x[1]))
-sorted(inputlist, key=lambda e: (len(e[0]), e[0], e[1]))
-Now you are sorting each element first by the length, then by comparing the first element directly (which in only used when the first element is of equal length), then by the value of the last integer.
 
 collections.Counter is useful for counting occurrences in lists
 itertools product is useful when you need permutations with repetition allowed
@@ -105,12 +127,6 @@ import collections
         cnt[word] += 1
     print(cnt.most_common(10))
 permutations_list = [p for p in itertools.product(x, repeat=13)]
-
-Initializing a two dimensional list:
-x = [[foo for i in range(10)] for j in range(10)]
-
-remove multiple items from a list in one line:
-list = [e for e in original_list if e not in [1,2,3]]
 
 find out if the sum of three dice rolls is prime:
 
@@ -145,9 +161,6 @@ def cross(A, B):
 suits = 'SHDC'
 ranks = 'A23456789TJQK'
 deck  = cross(ranks, suits)
-
-combining a list of numbers to a string:
-ans = ''.join(map(str, LIST))
 
 l1 = [1,"hi",None]
 #creating a shallow copy of a list
@@ -189,9 +202,6 @@ class Solution:
             if len(set(group)) > 1: break
             res.append(group[0])
         return "".join(res)
-
-Check if counter has only positive values:
-if Counter == Counter()
 
 find index of max in list
 maxxi = max((v, i) for i, v in enumerate(a))[1]
@@ -512,7 +522,3 @@ Tree traversals
 (a) Inorder (Left, Root, Right) : 4 2 5 1 3
 (b) Preorder (Root, Left, Right) : 1 2 4 5 3
 (c) Postorder (Left, Right, Root) : 4 5 2 3 1
-
-sorted dict
-for w in sorted(d.keys()):
-    print(w, d[w])

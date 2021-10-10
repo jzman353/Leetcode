@@ -42,6 +42,8 @@ Constraints:
 
 1 <= nums.length <= 100
 -1000 <= nums[i] <= 1000
+
+Note: This question is the same as 724: https://leetcode.com/problems/find-pivot-index/
 """
 #63%
 class Solution:
