@@ -48,6 +48,22 @@ https://docs.python.org/3.8/library/functions.html#hash
 #available in the queue but then uses negative again to make it a 
 #positive number again
 
+Using else after a for loop will tell you if there was a break or if it ran all the way through
+myStr = "checkmate"
+for i in myStr:
+	if i == "m":
+		break
+	print(i)
+else:
+	print("no break found")
+
+Output:
+c
+h
+e
+c
+k
+
 
 import collections 
 import heapq
