@@ -64,6 +64,10 @@ e
 c
 k
 
+90 degree 2D array rotation
+#90 degrees
+#This function unzips mat (it gives a list of mat's columns but reverses the order within the columns)
+rot1 = list(zip(*mat[::-1]))
 
 import collections 
 import heapq
