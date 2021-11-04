@@ -1,6 +1,6 @@
 """
 81%
-1360. Number of Days Between Two Dates
+1360. Number of Days Between Two Dates and times
 Easy
 
 Write a program to count the number of days between two dates.
