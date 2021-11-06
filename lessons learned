@@ -42,6 +42,8 @@ hash() will return a unique hash number for any item. You can use this to find a
 hash('a')+hash('b')+hash('c') == hash('c')+hash('a')+hash('b')
 https://docs.python.org/3.8/library/functions.html#hash
 
+# to get last element occurrence
+res = len(test_list) - 1 - test_list[::-1].index('e')
 
 #uses heapq, which is a min heap setup
 #uses negative freq because it wants the highest frequency to be the first 
