@@ -43,6 +43,30 @@ class Solution:
         return self.ans
 
 """
+class Solution:
+    def letterCombinations(self, digits: str):
+        phone = {'2':['a','b','c'],
+                 '3':['d','e','f'],
+                 '4':['g','h','i'],
+                 '5':['j','k','l'],
+                 '6':['m','n','o'],
+                 '7':['p','q','r','s'],
+                 '8':['t','u','v'],
+                 '9':['w','x','y','z']
+                }
+        self.answer = []
+        def rPhone(current_str, num):
+            if not num:
+                self.answer.append(current_str)
+            else:
+                for i in phone[num[0]]:
+                    rPhone(current_str+i, num[1:])
+
+        rPhone("", list(digits))
+        return self.answer
+"""
+
+"""
 sample 8 ms submission
 class Solution:
     def letterCombinations(self, digits: str) -> List[str]:
