@@ -4,6 +4,8 @@ for w in sorted(d.keys()):
 
 flatten_list = list(chain.from_iterable(grid))
 
+saving a variable in place: nums[::] = nums[:i-1]+[s[nextt]]+s[:nextt]+s[nextt+1:]
+
 # print(f"{i=} {curr[0]=} {total=} {d=}")
 
 Sorting a list and returning the indexes of the sorted values is often useful
@@ -66,10 +68,12 @@ e
 c
 k
 
-90 degree 2D array rotation
+90 degree 2D array rotation #rotate
 #90 degrees
 #This function unzips mat (it gives a list of mat's columns but reverses the order within the columns)
 rot1 = list(zip(*mat[::-1]))
+
+
 
 import collections 
 import heapq
