@@ -26,6 +26,12 @@ list = [e for e in original_list if e not in [1,2,3]]
 
 Check if counter has only positive values:
 if Counter == Counter()
+delete all zero or negative values
+c = +c
+delete all zero or positive values
+c = -c
+
+evenKeys = sorted(evencnt, key=evencnt.get, reverse=True)
 
 combining a list of numbers to a string:
 ans = ''.join(map(str, LIST))
