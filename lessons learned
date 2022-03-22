@@ -26,9 +26,23 @@ list = [e for e in original_list if e not in [1,2,3]]
 
 Check if counter has only positive values:
 if Counter == Counter()
+delete all zero or negative values
+c = +c
+delete all zero or positive values
+c = -c
+
+evenKeys = sorted(evencnt, key=evencnt.get, reverse=True)
 
 combining a list of numbers to a string:
 ans = ''.join(map(str, LIST))
+
+@cache (Used for recursive)
+def factorial(n):
+    return n * factorial(n-1) if n else 1
+The response is not much complicated, this decorator uses a technique to optimize called “memoize”.
+What this does is store the result of expensive function calls, in our case because the recursion uses this to “cache”
+and does not calculate again what he already calculated, decreasing drastically the amount of effort to achieve the response.
+
 
 heapq is a min heap setup built in to python
 heapq.heapify(heap) will turn a list (heap) into a heap item
