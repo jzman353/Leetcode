@@ -31,6 +31,13 @@ c = +c
 delete all zero or positive values
 c = -c
 
+Sort list while retaining indexes
+arr = list(enumerate(nums))
+arr.sort(key = lambda x: x[1])
+idx = [i for i, j in arr[-k:]]
+idx.sort()
+return [nums[i] for i in idx]
+
 evenKeys = sorted(evencnt, key=evencnt.get, reverse=True)
 
 combining a list of numbers to a string:
