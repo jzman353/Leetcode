@@ -47,7 +47,7 @@ rings[i] where i is odd is a digit from '0' to '9' (0-indexed).
 class Solution:
     def countPoints(self, rings: str) -> int:
         answer = 0
-        d = defaultdict(lambda: set())
+        d = defaultdict(set)
         for i in range(1,len(rings),2):
             d[rings[i]].add(rings[i-1])
         for i in d.keys():

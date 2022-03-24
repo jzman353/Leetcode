@@ -38,6 +38,10 @@ idx = [i for i, j in arr[-k:]]
 idx.sort()
 return [nums[i] for i in idx]
 
+get each digit of a number:
+while temp != 0:
+    temp, dig = divmod(temp, 10)
+
 evenKeys = sorted(evencnt, key=evencnt.get, reverse=True)
 
 combining a list of numbers to a string:
@@ -220,6 +224,8 @@ ans = []
 for j, k in zip(list1, list2):
     ans.append(j)
     ans.append(k)
+if len(list1)>len(list2):
+    ans.append(list1[-1])
 
 find all indexes of a char in a string:
 def find1(str, ch):
