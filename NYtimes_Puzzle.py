@@ -8,10 +8,10 @@ english_words = words_file.read().splitlines()
 #yellow2 = {'a':[0,3],'o':[0,1,2],'n':[0,3], 'g':[0,3]}
 #gray = ""
 
-green = "????e"
-yellow1 = 'b'
-yellow2 = {'a':[0,2]}
-gray = "srtyopnm"
+green = "s??n?"
+yellow1 = ''
+yellow2 = {}
+gray = "etyiopak"
 """
 
 """
