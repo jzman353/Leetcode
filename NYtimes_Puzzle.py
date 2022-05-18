@@ -7,10 +7,10 @@ english_words = words_file.read().splitlines()
 #yellow2 = {'a':[0,3],'o':[0,1,2],'n':[0,3], 'g':[0,3]}
 #gray = ""
 
-green = "?????"
-yellow1 = ''
-yellow2 = {}
-gray = "ertuidfhjxcm"
+green = "??a??"
+yellow1 = 'lu'
+yellow2 = {'l':[0,4],'u':[2,3]}
+gray = "ertosghvbn"
 
 for i in english_words:
     if len(i) == 5:
@@ -31,6 +31,3 @@ for i in english_words:
                 ruled_out = True
         if not ruled_out:
             print(i)
-
-#minty
-#tinny
