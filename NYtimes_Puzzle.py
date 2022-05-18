@@ -1,6 +1,5 @@
 #Open the word list file (stored in a different folder) and read it line by line
-#words_file = open("Needed_Modules/Word_List.txt", "r")
-words_file = open("/Users/jzalmano/PycharmProjects/Leetcode/Needed_Modules/Word_List.txt", "r")
+words_file = open("Needed_Modules/Word_List.txt", "r")
 english_words = words_file.read().splitlines()
 
 #green = "?????"
@@ -12,9 +11,6 @@ green = "s??n?"
 yellow1 = ''
 yellow2 = {}
 gray = "etyiopak"
-"""
-
-"""
 
 for i in english_words:
     if len(i) == 5:
@@ -35,6 +31,3 @@ for i in english_words:
                 ruled_out = True
         if not ruled_out:
             print(i)
-
-#minty
-#tinny
