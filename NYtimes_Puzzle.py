@@ -1,5 +1,5 @@
 #Open the word list file (stored in a different folder) and read it line by line
-words_file = open("Needed_Modules/Word_List.txt", "r")
+words_file = open("/Users/jzalmano/PycharmProjects/Leetcode/Needed_Modules/Word_List.txt", "r")
 english_words = words_file.read().splitlines()
 
 #green = "?????"
@@ -7,10 +7,10 @@ english_words = words_file.read().splitlines()
 #yellow2 = {'a':[0,3],'o':[0,1,2],'n':[0,3], 'g':[0,3]}
 #gray = ""
 
-green = "s??n?"
-yellow1 = ''
+green = "?a??n"
+yellow1 = 'ot'
 yellow2 = {}
-gray = "etyiopak"
+gray = ""
 
 for i in english_words:
     if len(i) == 5:
