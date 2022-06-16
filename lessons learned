@@ -31,6 +31,9 @@ c = +c
 delete all zero or positive values
 c = -c
 
+Initialize a dictionary of dictionaries:
+d = defaultdict(lambda : collections.defaultdict(int))
+
 Sort list while retaining indexes
 arr = list(enumerate(nums))
 arr.sort(key = lambda x: x[1])
