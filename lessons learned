@@ -608,3 +608,6 @@ age = today.year - date.year - ((today.month, today.day) < (date.month, date.day
 work with time zones in python with pytz
 
 files = os.listdir(directory)
+
+Factorial but with addition: ((n)**2+(n))//2
+https://math.stackexchange.com/questions/593318/factorial-but-with-addition
