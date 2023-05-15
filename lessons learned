@@ -21,6 +21,10 @@ w.sort(key=len)
 Initializing a two dimensional list:
 x = [[foo for i in range(10)] for j in range(10)]
 
+Save test copies to a text file
+with open("TestCaseCopy.txt", "a") as f:
+    print(grid, file=f)
+
 remove multiple items from a list in one line:
 list = [e for e in original_list if e not in [1,2,3]]
 
