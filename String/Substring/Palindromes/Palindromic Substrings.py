@@ -1,0 +1,76 @@
+"""
+647. Palindromic Substrings
+Medium
+
+Given a string s, return the number of palindromic substrings in it.
+
+A string is a palindrome when it reads the same backward as forward.
+
+A substring is a contiguous sequence of characters within the string.
+
+Example 1:
+
+Input: s = "abc"
+Output: 3
+Explanation: Three palindromic strings: "a", "b", "c".
+Example 2:
+
+Input: s = "aaa"
+Output: 6
+Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa", "aaa".
+
+Constraints:
+
+1 <= s.length <= 1000
+s consists of lowercase English letters.
+"""
+import string
+
+#15%
+class Solution:
+    def countSubstrings(self, s: str) -> int:
+        ans = len(s)
+        def check_palindrome(string1):
+            #print(string1, string1 == string1[::-1])
+            return string1 == string1[::-1]
+        for i in range(len(s)-1):
+            for j in range(i+2,len(s)+1):
+                #print(i,j,s[i:j])
+                ans += check_palindrome(s[i:j])
+        return ans
+
+import random
+def testCases():
+    print('"'+"".join(random.choices(string.ascii_lowercase,k=random.randint(1,1000)))+'"')
+
+for i in range(8):
+    testCases()
+
+"""
+Sample 24 ms submission
+
+class Solution:
+    def countSubstrings(self, s: str) -> int:
+        if len(set(s)) == 1:
+            return int(len(s) * (len(s)+1) / 2)
+        
+        res = 0
+
+        for i in range(len(s)):
+            
+            # for l, r in ((i,i), (i-1,i)):
+
+            l,r = i,i
+            while 0<=l and r <len(s) and s[l] == s[r]:
+                res += 1
+                l -= 1
+                r += 1
+            
+            l,r = i-1,i
+            while 0<=l and r <len(s) and s[l] == s[r]:
+                res += 1
+                l -= 1
+                r += 1
+        
+        return res
+"""
