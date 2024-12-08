@@ -3,5 +3,5 @@
   <component name="Black">
     <option name="sdkName" value="Pipenv (Leetcode)" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Leetcode" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="Pipenv (Leetcode)" project-jdk-type="Python SDK" />
 </project>

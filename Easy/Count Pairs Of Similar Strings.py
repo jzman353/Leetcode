@@ -46,3 +46,13 @@ words[i] consist of only lowercase English letters.
 94%
 """
 
+class Solution:
+    def similarPairs(self, words: List[str]) -> int:
+        l = []
+        for i in range(len(words)):
+            l.append(''.join(sorted(set(words[i]))))
+        c = Counter(l)
+        ans = 0
+        for k, c in c.items():
+            ans += comb(c, 2)
+        return ans
