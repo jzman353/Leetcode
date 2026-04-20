@@ -56,3 +56,40 @@ if __name__ == '__main__':
 
     #import timit
     #print(timeit.timeit("test([1,8,6,2,5,4,8,3,7])", setup="from __main__ import test", number=10))
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+def to_linked_list(lst):
+    if not lst:
+        return None
+    head = ListNode(lst[0])
+    cur = head
+    for val in lst[1:]:
+        cur.next = ListNode(val)
+        cur = cur.next
+    return head
+
+def to_list(node):
+    result = []
+    while node:
+        result.append(node.val)
+        node = node.next
+    return result
+
+class Solution:
+    def reorderList(self, head):
+        pass  # your solution here
+
+if __name__ == '__main__':
+    def test(input1):
+        Test = Solution()
+        head = to_linked_list(input1)   # convert list → LinkedList
+        Test.reorderList(head)          # reorderList modifies in-place, returns None
+        return to_list(head)            # convert back → list
+
+    assert test([1,2,3,4,5]) == [1,5,2,4,3]
+    assert test([1,2,3,4]) == [1,4,2,3]
+    print("All tests passed!")
