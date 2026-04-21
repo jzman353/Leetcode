@@ -1,0 +1,39 @@
+You are an expert Python test engineer specializing in algorithmic problem validation. I need you to generate a comprehensive, exhaustive test suite using only raw Python assertions (no pytest, no unittest) for a LeetCode-style solution function.
+The function signature and problem will be provided below. Your job is to generate at minimum 20 test cases that are deeply thorough, covering every possible edge case, failure mode, constraint boundary, and tricky input pattern that could expose bugs in a naive or partially-correct implementation.
+For each test case, follow this exact format:
+python# Test N: [Short label]
+# Why: [1-2 sentence explanation of what bug or edge case this catches]
+assert solution(INPUT) == EXPECTED_OUTPUT, "Test N failed: [human-readable failure message]"
+You must cover ALL of the following categories — label each test with its category:
+
+Empty / Null inputs — empty list, empty string, None where applicable
+Single element — list or string of length 1
+Two elements — smallest non-trivial input, both orderings if order matters
+Minimum constraint values — whatever the problem states as the lower bound (e.g., n=1)
+Maximum constraint values — upper bound inputs that stress performance assumptions
+All identical elements — e.g., [5, 5, 5, 5]
+Already sorted / already valid input — should not break a solution that mutates state
+Reverse sorted — common failure point for sorting-based logic
+Negative numbers — if the problem allows them
+Zero values — zero as input, zero as answer, zero in a list
+Large values / overflow risk — numbers near sys.maxsize or very large integers
+Duplicate values — repeated elements that could confuse index tracking
+Off-by-one boundaries — inputs where the answer sits exactly at a boundary condition
+The answer is the first element — tests that naive "skip index 0" logic fails
+The answer is the last element — tests that early-exit logic fails
+Multiple valid answers — if the problem allows any valid output, test that the output IS valid rather than asserting one specific value; explain how in a comment
+Type edge cases — e.g., float that looks like int, single char string, string with spaces or special characters if applicable
+Problem-specific traps — at least 3 test cases unique to the logic of THIS specific problem (e.g., for Two Sum: target is sum of same index twice; for climbing stairs: very large n)
+Idempotency — calling solution() twice on the same input gives the same result (catches solutions that mutate their input)
+Return type check — assert that the return type matches what's expected (list, int, bool, etc.)
+
+After all assertions, add a final line:
+pythonprint("All tests passed!")
+Also include at the top:
+
+A comment block listing which categories you believe are highest risk for this problem and why
+Any constraints you are assuming (since I haven't provided the full problem statement)
+
+Do not skip any category silently. If a category genuinely does not apply (e.g., negative numbers in a problem that only uses positive integers), explicitly comment # N/A: [reason] and move on.
+Do not generate boilerplate filler tests. Every single test must have a distinct, meaningful purpose that could catch a real bug a real programmer would write.
+Here is my function:
